@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Partido</title>
+    <link rel="stylesheet" href="cadpartido.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastrar Partido</h1>
+
+        <form action="partido_registrado.html" method="POST">
+            <label for="nome">Nome do Partido</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite o nome do partido" required>
+
+            <label for="sigla">Sigla</label>
+            <input type="text" id="sigla" name="sigla" placeholder="Digite a sigla do partido" required>
+
+            <label for="numero">Número de Registro</label>
+            <input type="number" id="numero" name="numero" placeholder="Digite o número de registro" required>
+
+            <button type="submit">Cadastrar Partido</button>
+        </form>
+
+        <div class="back-button">
+            <a href="partidos.html">Voltar para Lista de Partidos</a>
+        </div>
+    </div>
+
+</body>
+</html>
