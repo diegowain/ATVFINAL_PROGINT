@@ -187,12 +187,12 @@ function exibirTabelaPartido(listaPartido){
         const corpo = document.createElement('tbody');
         for (const partido of listaPartido) {
             const linha = document.createElement('tr');  
-            linha.innerHTML = `
-                <td>${partido.nome}</td>
-                <td>${partido.sigla}</td>
-                <td>${partido.registro}</td>
+            linha.innerHTML = 
+                "<td>"+ partido.nome + "</td>" +
+                "<td>"+ partido.sigla + "</td>" +
+                "<td>"+ partido.registro + "</td>" +
 
-                <td>
+                `<td>
                     <button onclick="selecionarPartido('${partido.nome}','${partido.sigla}','${partido.registro}','EDITAR')">Alterar</button>
                     <button onclick="selecionarPartido('${partido.nome}','${partido.sigla}','${partido.registro}','EXCLUIR')">Excluir</button>
                 </td>
