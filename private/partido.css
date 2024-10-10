@@ -78,3 +78,21 @@ transition: background-color 0.3s ease;
 .party-list li:hover {
 background-color: #4a4a4a;
 }
+
+.botaovoltar a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #444;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botaovoltar a:hover {
+    background-color: #555;
+}
+.botaovoltar {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}

@@ -101,13 +101,13 @@
     <script>
         // Função para carregar os partidos da API e preencher o select
         function carregarPartidos() {
-            const urlBase = 'https://sua-api-aqui.com'; // Substitua pela URL da sua API
+            const urlBase = 'http://localhost:3024/partido'; // Substitua pela URL da sua API
 
-            fetch(urlBase + '/partidos')
+            fetch('http://localhost:3024/partido/')
                 .then((resposta) => {
                     return resposta.json();
                 })
-                .then((partidos) => {
+                .then((partido) => {
                     const selectPartidos = document.getElementById('partido-select');
                     // Limpa o select antes de preencher
                     selectPartidos.innerHTML = '';
@@ -117,10 +117,10 @@
                     optionDefault.text = 'Selecione um partido';
                     selectPartidos.appendChild(optionDefault);
                     // Preenche o select com os partidos retornados
-                    for (let i = 0; i < partidos.length; i++) {
+                    for (let i = 0; i < partido.length; i++) {
                         const option = document.createElement('option');
-                        option.value = partidos[i].nome;
-                        option.text = partidos[i].nome;
+                        option.value = partido[i].nome;
+                        option.text = partido[i].nome;
                         selectPartidos.appendChild(option);
                     }
                 })
@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Cadastrar Candidato</h1>
 
-        <form action="candidato_registrado.html" method="POST">
+        <form action="#" method="POST" id="formCandidato">
             <label for="nome">Nome do Candidato</label>
             <input type="text" id="nome" name="nome" placeholder="Nome do candidato" required>
 
@@ -159,4 +159,5 @@
     </div>
 
 </body>
+<script src="./js/candidato.js"></script>
 </html>
