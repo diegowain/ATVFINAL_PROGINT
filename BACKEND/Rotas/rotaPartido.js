@@ -1,4 +1,4 @@
-import {Router} from "express";
+import { Router } from "express";
 import PartidoCtrl from "../Controle/PartidoCtrl.js";
 
 const rotaPartido = Router();
@@ -10,7 +10,6 @@ rotaPartido.get("/", ctrlPartido.consultar)
 .put("/", ctrlPartido.alterar)
 .patch("/", ctrlPartido.alterar)
 .delete("/", ctrlPartido.excluir);
-
 
 
 export default rotaPartido;

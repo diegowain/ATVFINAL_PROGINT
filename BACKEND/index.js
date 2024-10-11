@@ -1,7 +1,7 @@
-import express from "express"
-import rotaPartido from "./Rotas/rotaPartido.js"
-import rotaCandidato from "./Rotas/rotaCandidato.js"
-import cors from "cors"
+import cors from "cors";
+import express from "express";
+import rotaCandidato from "./Rotas/rotaCandidato.js";
+import rotaPartido from "./Rotas/rotaPartido.js";
 
 const app = express();
 const host = '0.0.0.0';

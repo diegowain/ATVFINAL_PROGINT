@@ -1,4 +1,3 @@
-import conectar from "../DAO/Conexao.js"
 import PartidoDAO from "../DAO/PartidoDAO.js"
 
 export default class Partido{
@@ -69,8 +68,8 @@ export default class Partido{
 
     async consultar (termoBusca) {
         const parDAO = new PartidoDAO();
-        return await parDAO.consultar(termoBusca)
-   
+        console.log('entity.consultar')
+        return await parDAO.consultar(termoBusca)   
     }
 
 }
