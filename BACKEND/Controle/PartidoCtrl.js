@@ -33,6 +33,7 @@ export default class PartidoCtrl {
       }
     }
   }
+  
   alterar(requisicao, resposta) {
     if (
       requisicao.method == "PUT" ||
@@ -109,7 +110,7 @@ export default class PartidoCtrl {
 
   consultar(requisicao, resposta) {
     let termoBusca = requisicao.params.termoBusca || "";
-    console.log("Consulting partidos with term:", termoBusca); // Log for debugging
+    console.log("Consulting partidos with term:", termoBusca);
 
     if (requisicao.method === "GET") {
       const partido = new Partido();
@@ -117,10 +118,10 @@ export default class PartidoCtrl {
         .consultar(termoBusca)
         .then((respostaAPI) => {
           console.log("Response API:", respostaAPI);
-          if (respostaAPI.status === true) {
+          if (respostaAPI.length > 0) {
             return resposta.status(200).json({
               status: true,
-              listaPartido: respostaAPI.listaPartido,
+              listaPartido: respostaAPI,
             });
           }
           return resposta.status(404).json({

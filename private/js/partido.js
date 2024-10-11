@@ -1,7 +1,6 @@
 const formPartido = document.getElementById("formPartido");
 
 formPartido.onsubmit = validarCampos;
-const ctrlPartido = new PartidoCtrl();
 const enderecoAPI = "http://localhost:3024/partido";
 buscarTodosPartido();
 var motivoAcao = "CADASTRAR";
@@ -32,6 +31,9 @@ function gravarPartido() {
     })
     .catch((erro) => {
       exibirMensagem(erro, "#D2691E");
+    })
+    .finally(() => {
+      buscarTodosPartido();
     });
 }
 
@@ -106,11 +108,9 @@ function buscarTodosPartido() {
     method: "GET",
   })
     .then((resposta) => {
-      console.log(resposta);
       return resposta.json();
     })
     .then((respostaAPI) => {
-      console.log(respostaAPI);
       if (respostaAPI.status == true) {
         exibirTabelaPartido(respostaAPI.listaPartido);
       } else {

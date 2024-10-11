@@ -57,16 +57,19 @@ export default class PartidoDAO {
   async consultar(termoBusca) {
     let sql = "";
     let parametros = [];
+
     if (termoBusca) {
-      sql = `SELECT * FROM partido WHERE sigla = ? order by registro`;
+      sql = `SELECT * FROM partido WHERE sigla = ? ORDER BY registro`;
       parametros.push(termoBusca);
     } else {
-      sql = `SELECT * FROM partido order by registro`;
+      sql = `SELECT * FROM partido ORDER BY registro`;
     }
+
     const conexao = await conectar();
-    const registros = await conexao.execute(sql, parametros);
+
+    const [registros] = await conexao.execute(sql, parametros);
     let listaPartido = [];
-    console.log('query result', registros)
+
     for (const registro of registros) {
       const partido = new Partido(
         registro.nome,
@@ -75,6 +78,7 @@ export default class PartidoDAO {
       );
       listaPartido.push(partido);
     }
+
     await global.poolConexoes.releaseConnection(conexao);
     return listaPartido;
   }
