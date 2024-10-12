@@ -8,7 +8,6 @@ export default async function conectar() {
       host: "localhost",
       user: "root",
       port: 3306,
-      password: "1234",
       database: "sys",
       waitForConnections: true,
       connectionLimit: 10,

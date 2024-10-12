@@ -136,10 +136,10 @@ function validarCampos(evento) {
       gravarPartido();
     } else if (motivoAcao == "EDITAR") {
       atualizarPartido();
-      motivoAcao = "CADASTRAR";
+      motivoAcao = "EDITAR";
     } else if (motivoAcao == "EXCLUIR") {
       excluirPartido();
-      motivoAcao = "CADASTRAR";
+      motivoAcao = "EXCLUIR";
     }
 
     formPartido.reset();
@@ -170,8 +170,7 @@ function exibirTabelaPartido(listaPartido) {
             <tr>
                 <th>Nome</th>
                 <th>Sigla</th>
-                <th>Numero de Registro</th>
-                <th>Ações</th>
+                <th>Numero de Registro</th>  
             </tr>
         `;
     const corpo = document.createElement("tbody");
@@ -188,8 +187,8 @@ function exibirTabelaPartido(listaPartido) {
         partido.registro +
         "</td>" +
         `<td>
-                    <button onclick="selecionarPartido('${partido.nome}','${partido.sigla}','${partido.registro}','EDITAR')">Alterar</button>
-                    <button onclick="selecionarPartido('${partido.nome}','${partido.sigla}','${partido.registro}','EXCLUIR')">Excluir</button>
+                    <button id="EDITAR" onclick="selecionarPartido('${partido.nome}','${partido.sigla}','${partido.registro}','EDITAR')">EDITAR</button>
+                    <button id="EXCLUIR" onclick="selecionarPartido( '${partido.nome}','${partido.sigla}','${partido.registro}','EXCLUIR')">EXCLUIR</button>
                 </td>
             `;
       corpo.appendChild(linha);

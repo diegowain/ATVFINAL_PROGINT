@@ -45,8 +45,7 @@ export default class PartidoCtrl {
       const registro = dados.registro;
       if (nome && sigla && registro) {
         const partido = new Partido(nome, sigla, registro);
-        partido
-          .alterar()
+        partido.alterar()
           .then(() => {
             resposta.status(200).json({
               status: true,
@@ -80,8 +79,7 @@ export default class PartidoCtrl {
 
       if (nome) {
         const partido = new Partido(nome);
-        partido
-          .excluir()
+        partido.excluir()
           .then(() => {
             resposta.status(200).json({
               status: true,
@@ -110,7 +108,7 @@ export default class PartidoCtrl {
 
   consultar(requisicao, resposta) {
     let termoBusca = requisicao.params.termoBusca || "";
-    console.log("Consulting partidos with term:", termoBusca);
+    console.log("Consultar partidos com:", termoBusca);
 
     if (requisicao.method === "GET") {
       const partido = new Partido();
@@ -126,19 +124,19 @@ export default class PartidoCtrl {
           }
           return resposta.status(404).json({
             status: false,
-            mensagem: "No partidos found.",
+            mensagem: "Nenhum partido encontrado.",
           });
         })
         .catch((erro) => {
           return resposta.status(500).json({
             status: false,
-            mensagem: "Error while consulting partido: " + erro.message,
+            mensagem: "Erro ao consultar partido: " + erro.message,
           });
         });
     } else {
       return resposta.status(405).json({
         status: false,
-        mensagem: "Invalid request method",
+        mensagem: "Requisição invalida.",
       });
     }
   }
